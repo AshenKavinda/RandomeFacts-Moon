@@ -35,7 +35,7 @@
 <body>
     <header>
         <h1>Moon Facts</h1>
-        <button id="showFactsBtn">Show Moon Facts</button>
+        <button id="showFactsBtn">Show Random Moon Fact</button>
     </header>
     <section id="factsDisplay"></section>
     <script>
@@ -54,12 +54,8 @@
 
         document.getElementById('showFactsBtn').addEventListener('click', function() {
             const factsDisplay = document.getElementById('factsDisplay');
-            factsDisplay.innerHTML = ''; // Clear previous facts
-            moonFacts.forEach(fact => {
-                const factElement = document.createElement('p');
-                factElement.textContent = fact;
-                factsDisplay.appendChild(factElement);
-            });
+            const randomIndex = Math.floor(Math.random() * moonFacts.length);
+            factsDisplay.innerHTML = moonFacts[randomIndex]; // Display a random fact
         });
     </script>
 </body>
